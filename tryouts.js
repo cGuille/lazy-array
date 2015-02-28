@@ -5,6 +5,13 @@
 
     var arr = [1, 2, 3, 4, 5, 6];
 
+    // Non chained calls are also supported:
+    // arr.lazy.forEach(logElement);
+    // arr.lazy.filter(isEven);
+    // arr.lazy.forEach(logElement);
+    // arr.lazy.map(mapElement);
+    // console.log('result', arr.lazy.collect());
+
     console.log(
         'result',
         arr.lazy

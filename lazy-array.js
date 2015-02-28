@@ -27,7 +27,10 @@
 
     function lazy() {
         logger.debug('Being lazy, now.');
-        return new LazyArray(this);
+        if (!this._lazy) {
+            this._lazy = new LazyArray(this);
+        }
+        return this._lazy;
     }
 
     function LazyArray(array) {
@@ -112,6 +115,8 @@
             ++elementIndex;
             result.push(element);
         }
+
+        delete this.array._lazy;
 
         return result;
     };
